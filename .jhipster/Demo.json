@@ -1,0 +1,71 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "edad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroCredencial",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "sueldo",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "impuesto",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "impuestoDetalle",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ativo",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fechaLocalDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fechaZoneDateTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "imagen",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "imagenAnyBlob",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "imagenBlob",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "instante",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20171109000254",
+    "entityTableName": "demo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
