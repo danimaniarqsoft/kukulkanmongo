@@ -1,16 +1,16 @@
 {
     "home": {
-        "title": "Welcome, Kukulkan Mongo Test!",
+        "title": "Welcome, Kukulkan App Generated!",
         "subtitle": "This is your homepage",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
-        "question": "If you have any question on Kukulkan Mongo Test:",
+        "question": "If you have any question on Kukulkan App Generated:",
         "link": {
             "homepage": "Kukulkan homepage",
-            "stackoverflow": "Kukulkan Mongo Test on Stack Overflow",
-            "bugtracker": "Kukulkan Mongo Test bug tracker",
-            "chat": "Kukulkan Mongo Test public chat room",
+            "stackoverflow": "Kukulkan Test on Stack Overflow",
+            "bugtracker": "Kukulkan Test bug tracker",
+            "chat": "Kukulkan Test public chat room",
             "follow": "follow @java_kukulkan on Twitter"
         },
         "like": "If you like Kukulkan, don't forget to give us a star on",
