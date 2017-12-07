@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span data-translate="kukulkanmongoApp.prueba.detail.title">Prueba</span> {{vm.prueba.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="kukulkanmongoApp.prueba.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.prueba.nombre}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.edad">Edad</span></dt>
+        <dd>
+            <span>{{vm.prueba.edad}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.numeroCredencial">Numero Credencial</span></dt>
+        <dd>
+            <span>{{vm.prueba.numeroCredencial}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.sueldo">Sueldo</span></dt>
+        <dd>
+            <span>{{vm.prueba.sueldo}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.impuesto">Impuesto</span></dt>
+        <dd>
+            <span>{{vm.prueba.impuesto}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.impuestoDetalle">Impuesto Detalle</span></dt>
+        <dd>
+            <span>{{vm.prueba.impuestoDetalle}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.activo">Activo</span></dt>
+        <dd>
+            <span>{{vm.prueba.activo}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.fechaLocalDate">Fecha Local Date</span></dt>
+        <dd>
+            <span>{{vm.prueba.fechaLocalDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.fechaZoneDateTime">Fecha Zone Date Time</span></dt>
+        <dd>
+            <span>{{vm.prueba.fechaZoneDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.imagen">Imagen</span></dt>
+        <dd>
+            <div ng-if="vm.prueba.imagen">
+                <a ng-click="vm.openFile(vm.prueba.imagenContentType, vm.prueba.imagen)" data-translate="entity.action.open">open</a>
+                {{vm.prueba.imagenContentType}}, {{vm.byteSize(vm.prueba.imagen)}}
+            </div>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.imagenAnyBlob">Imagen Any Blob</span></dt>
+        <dd>
+            <div ng-if="vm.prueba.imagenAnyBlob">
+                <a ng-click="vm.openFile(vm.prueba.imagenAnyBlobContentType, vm.prueba.imagenAnyBlob)" data-translate="entity.action.open">open</a>
+                {{vm.prueba.imagenAnyBlobContentType}}, {{vm.byteSize(vm.prueba.imagenAnyBlob)}}
+            </div>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.imagenBlob">Imagen Blob</span></dt>
+        <dd>
+            <div ng-if="vm.prueba.imagenBlob">
+                <a ng-click="vm.openFile(vm.prueba.imagenBlobContentType, vm.prueba.imagenBlob)">
+                    <img data-ng-src="{{'data:' + vm.prueba.imagenBlobContentType + ';base64,' + vm.prueba.imagenBlob}}" style="max-width: 100%;" alt="prueba image"/>
+                </a>
+                {{vm.prueba.imagenBlobContentType}}, {{vm.byteSize(vm.prueba.imagenBlob)}}
+            </div>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.desc">Desc</span></dt>
+        <dd>
+            <span>{{vm.prueba.desc}}</span>
+        </dd>
+        <dt><span data-translate="kukulkanmongoApp.prueba.instante">Instante</span></dt>
+        <dd>
+            <span>{{vm.prueba.instante | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="prueba-detail.edit({id:vm.prueba.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

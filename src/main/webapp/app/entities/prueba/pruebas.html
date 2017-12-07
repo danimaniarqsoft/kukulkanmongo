@@ -1,0 +1,97 @@
+<div>
+    <h2 data-translate="kukulkanmongoApp.prueba.home.title">Pruebas</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="prueba.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="kukulkanmongoApp.prueba.home.createLabel">
+                        Create new Prueba
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span data-translate="kukulkanmongoApp.prueba.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="edad"><span data-translate="kukulkanmongoApp.prueba.edad">Edad</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numeroCredencial"><span data-translate="kukulkanmongoApp.prueba.numeroCredencial">Numero Credencial</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sueldo"><span data-translate="kukulkanmongoApp.prueba.sueldo">Sueldo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impuesto"><span data-translate="kukulkanmongoApp.prueba.impuesto">Impuesto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="impuestoDetalle"><span data-translate="kukulkanmongoApp.prueba.impuestoDetalle">Impuesto Detalle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="activo"><span data-translate="kukulkanmongoApp.prueba.activo">Activo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechaLocalDate"><span data-translate="kukulkanmongoApp.prueba.fechaLocalDate">Fecha Local Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechaZoneDateTime"><span data-translate="kukulkanmongoApp.prueba.fechaZoneDateTime">Fecha Zone Date Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagen"><span data-translate="kukulkanmongoApp.prueba.imagen">Imagen</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagenAnyBlob"><span data-translate="kukulkanmongoApp.prueba.imagenAnyBlob">Imagen Any Blob</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagenBlob"><span data-translate="kukulkanmongoApp.prueba.imagenBlob">Imagen Blob</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="desc"><span data-translate="kukulkanmongoApp.prueba.desc">Desc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="instante"><span data-translate="kukulkanmongoApp.prueba.instante">Instante</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="prueba in vm.pruebas track by prueba.id">
+                    <td><a ui-sref="prueba-detail({id:prueba.id})">{{prueba.id}}</a></td>
+                    <td>{{prueba.nombre}}</td>
+                    <td>{{prueba.edad}}</td>
+                    <td>{{prueba.numeroCredencial}}</td>
+                    <td>{{prueba.sueldo}}</td>
+                    <td>{{prueba.impuesto}}</td>
+                    <td>{{prueba.impuestoDetalle}}</td>
+                    <td>{{prueba.activo}}</td>
+                        <td>{{prueba.fechaLocalDate | date:'mediumDate'}}</td>
+                    <td>{{prueba.fechaZoneDateTime | date:'medium'}}</td>
+                    <td>
+                        <a ng-if="prueba.imagen" ng-click="vm.openFile(prueba.imagenContentType, prueba.imagen)" data-translate="entity.action.open">open</a>
+                        <span ng-if="prueba.imagen">{{prueba.imagenContentType}}, {{vm.byteSize(prueba.imagen)}}</span>
+                    </td>
+                    <td>
+                        <a ng-if="prueba.imagenAnyBlob" ng-click="vm.openFile(prueba.imagenAnyBlobContentType, prueba.imagenAnyBlob)" data-translate="entity.action.open">open</a>
+                        <span ng-if="prueba.imagenAnyBlob">{{prueba.imagenAnyBlobContentType}}, {{vm.byteSize(prueba.imagenAnyBlob)}}</span>
+                    </td>
+                    <td>
+                        <a ng-if="prueba.imagenBlob" ng-click="vm.openFile(prueba.imagenBlobContentType, prueba.imagenBlob)">
+                            <img data-ng-src="{{'data:' + prueba.imagenBlobContentType + ';base64,' + prueba.imagenBlob}}" style="max-height: 30px;" alt="prueba image"/>
+                        </a>
+                        <span ng-if="prueba.imagenBlob">{{prueba.imagenBlobContentType}}, {{vm.byteSize(prueba.imagenBlob)}}</span>
+                    </td>
+                    <td>{{prueba.desc}}</td>
+                    <td>{{prueba.instante | date:'medium'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="prueba-detail({id:prueba.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prueba.edit({id:prueba.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prueba.delete({id:prueba.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
